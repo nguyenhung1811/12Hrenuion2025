@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hội Ngộ Cấp 3</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      background-image: url('https://i.ibb.co/93tg4GGc/z6765720987627-14583be4f5507bf1765ac7f9931ef545.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    .countdown {
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+    iframe {
+      max-width: 90%;
+      height: 315px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>🎉 12H 02-05 • 20 năm ngày hội ngộ 🎉</h1>
+        <div class="subtitle" style="font-size: 2em;">🕒 14h00 ngày 18/7/2025</div>
+    <div class="countdown" id="countdown"></div>
+    <p>Phát nhạc hội ngộ playlist:</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=r-9QOBPjX737zvoH&amp;list=PLflHa4gGDlDpNCpSnufyaxfeiHMycGBdu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    const countdownElement = document.getElementById('countdown');
+    const targetDate = new Date("2025-07-18T14:00:00+07:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        countdownElement.innerHTML = "🎊 Đã đến giờ hội ngộ! 🎊";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `${days} ngày ${hours} giờ ${minutes} phút ${seconds} giây`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
